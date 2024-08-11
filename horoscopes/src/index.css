@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-image: linear-gradient(to right, #FFFFFF, #fedede);
+}
+
+@layer base {
+  .burger-menu {
+    @apply flex flex-col justify-around w-[30px] h-[24px] cursor-pointer;
+  }
+
+  .burger-menu .line {
+    @apply w-full h-[4px] bg-gray-800 transition-all duration-300 ease-in-out;
+  }
+
+  .burger-menu.active .line:nth-child(1) {
+    @apply transform rotate-45 translate-x-[5px] translate-y-[5px];
+  }
+
+  .burger-menu.active .line:nth-child(2) {
+    @apply opacity-0;
+  }
+
+  .burger-menu.active .line:nth-child(3) {
+    @apply transform -rotate-45 translate-x-[5px] -translate-y-[10px];
+  }
+  .container {
+    @apply max-w-[1200px] mx-auto px-4;
+  }
+  nav.active {
+    right: 0;
+  }
+}
