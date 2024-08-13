@@ -27,4 +27,25 @@ const zodiacSigns = [
   { name: "Aquarius", startDate: "Jan 20", endDate: "Feb 18", sign: aquarius },
   { name: "Pisces", startDate: "Feb 19", endDate: "Mar 20", sign: pisces },
 ];
-export default zodiacSigns;
+
+const horoscopeButtons = [
+  { name: "YESTERDAY", link: "/horoscopes/daily/yesterday/" },
+  { name: "TODAY", link: "/horoscopes/daily/today/" },
+  { name: "TOMORROW", link: "/horoscopes/daily/tomorrow/" },
+  { name: "WEEKLY", link: "/horoscopes/weekly/" },
+  { name: "MONTHLY", link: "/horoscopes/monthly/" },
+];
+
+export type horoscopeType = {
+  sign: string;
+  prediction: {
+    personal: string;
+    health: string;
+    profession: string;
+    emotions: string;
+    travel: string;
+    luck: string[];
+  };
+};
+
+export {zodiacSigns, horoscopeButtons}

@@ -12,7 +12,11 @@ export default {
       },
       colors: {
         purple: '#8B2CC5'
+      },
+      boxShadow: {
+        'blink': '0 0px 20px 0px rgba(13, 50, 209, 0.8)', 
       }
+
     },
   },
   plugins: [],
