@@ -41,7 +41,7 @@ const Horoscope = () => {
         {zodiacSigns.map((sign: zodiacSignType, index) => (
           <Link
             onMouseEnter={() => handleMouseEnter(index)}
-            to={`${horoscope}${sign.name}`}
+            to={`${horoscope}personal/${sign.name}`}
             key={sign.name}
             className={`text-center cursor-pointer select-none 
               }`}>

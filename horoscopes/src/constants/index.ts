@@ -10,7 +10,12 @@ import {
     sagittarius,
     scorpion,
     taurus,
-    virgo
+    virgo,
+    user,
+    briefcase,
+    heart,
+    star,
+    globe
 } from '../assets'
 
 const zodiacSigns = [
@@ -36,8 +41,43 @@ const horoscopeButtons = [
   { name: "MONTHLY", link: "/horoscopes/monthly/" },
 ];
 
-export type horoscopeType = {
+const horoscopeCategoryButtons = [
+  { name: "personal", link: "personal", icon: user },
+  { name: "profession", link: "profession",icon: briefcase },
+  { name: "health", link: "health",icon: heart },
+  { name: "emotions", link: "emotions",icon: star },
+  { name: "travel", link: "travel",icon: globe },
+];
+
+
+export type horoscopeMonthlyType = {
+  month: string
   sign: string;
+  monthly_horoscope: {
+    personal: string;
+    health: string;
+    profession: string;
+    emotions: string;
+    travel: string;
+    luck: string[];
+  };
+}
+
+export type horoscopeWeeklyType = {
+  week: string
+  sign: string;
+  weekly_horoscope: {
+    personal: string;
+    health: string;
+    profession: string;
+    emotions: string;
+    travel: string;
+    luck: string[];
+  };
+}
+
+export type horoscopeDailyType = {
+    sign: string;
   prediction: {
     personal: string;
     health: string;
@@ -46,6 +86,6 @@ export type horoscopeType = {
     travel: string;
     luck: string[];
   };
-};
+}
 
-export {zodiacSigns, horoscopeButtons}
+export {zodiacSigns, horoscopeButtons, horoscopeCategoryButtons }

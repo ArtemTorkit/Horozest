@@ -48,23 +48,23 @@ function App() {
         <Route path="/" element={<MainLayout />}>
           <Route path="/" element={<Home />} />
           <Route
-            path="/horoscopes/daily/today/:zodiacSign"
+            path="/horoscopes/daily/today/:category/:zodiacSign"
             element={<TodaysHoroscope date={today} />}
           />
           <Route
-            path="/horoscopes/daily/yesterday/:zodiacSign"
+            path="/horoscopes/daily/yesterday/:category/:zodiacSign"
             element={<YesterdaysHoroscope date={yesterday} />}
           />
           <Route
-            path="/horoscopes/daily/tomorrow/:zodiacSign"
+            path="/horoscopes/daily/tomorrow/:category/:zodiacSign"
             element={<TommorowsHorscope date={tomorrow} />}
           />
           <Route
-            path="/horoscopes/weekly/:zodiacSign"
+            path="/horoscopes/weekly/:category/:zodiacSign"
             element={<WeeklyHoroscope />}
           />
           <Route
-            path="/horoscopes/monthly/:zodiacSign"
+            path="/horoscopes/monthly/:category/:zodiacSign"
             element={<MonthlyHoroscope />}
           />
           <Route path="/zodiac-signs/:zodiacSign" element={<ZodiacSign />} />

@@ -1,24 +1,33 @@
-import useFetchDailyHoroscope from "../../hooks/useFetchDailyHoroscope";
-import { useParams } from 'react-router-dom';
+import useFetchHoroscope from "../../hooks/useFetchHoroscope";
+import { useParams, Link } from 'react-router-dom';
 import HoroscopeNavigation from './HoroscopeNavigation';
 import { useState } from 'react';
 import { loading } from "../../assets";
+import { horoscopeWeeklyType } from "../../constants";
+import { horoscopeCategoryButtons } from "../../constants";
 
 const WeeklyHoroscope = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
-  const { zodiacSign } = useParams<{ zodiacSign?: string }>();
+  const { zodiacSign, category='personal' } = useParams();
   const zodiacSignValue = zodiacSign || "Aries";
-  const { horoscope } = useFetchDailyHoroscope({
+
+  const { horoscope } = useFetchHoroscope<horoscopeWeeklyType>({
     zodiacSign: zodiacSignValue,
     date: "current",
     setIsLoading: setIsLoading,
     endpoint: "https://divineapi.com/api/1.0/get_weekly_horoscope.php",
+    responseType: {} as horoscopeWeeklyType,
   });
+
+  function capitalizeFirstLetter(string: string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   return (
     <div className="mycontainer">
       <h1 className="text-4xl font-radlay font-bold mt-9 text-center">
-        Tomorrows {zodiacSign} Horoscope
+        Weekly {capitalizeFirstLetter(category)} {zodiacSign} Horoscope
       </h1>
       <p className="text-center mt-2 text-gray-400">
         ({zodiacSign}, {horoscope?.week})
@@ -29,21 +38,38 @@ const WeeklyHoroscope = () => {
             baseLink="/horoscopes/weekly/"
             zodiacSign={zodiacSign ?? "Aries"}
             activeHoroscope={3}
+            category={category}
           />
 
           <div className="mt-6">
             <h2 className="font-bold text-xl">
-              Personal {zodiacSign} horoscope
+              {capitalizeFirstLetter(category)} {zodiacSign} horoscope
             </h2>
             {!isLoading ? (
-            
-            <p className="mt-2">{horoscope?.weekly_horoscope.personal}</p>
+              <p className="mt-2">{horoscope?.weekly_horoscope[category]}</p>
             ) : (
-                <div className="flex justify-center align-center">
-                  <img src={loading} className="w-[40px] h-[40px]" alt="" />
-                </div>
+              <div className="flex justify-center align-center">
+                <img
+                  src={loading}
+                  className="w-[40px] h-[40px]"
+                  alt="Loading"
+                />
+              </div>
             )}
-
+          </div>
+          <h2 className="font-bold text-xl mt-6">
+            More {zodiacSign} Horoscope
+          </h2>
+          <div className="flex flex-wrap gap-4 mt-4">
+            {horoscopeCategoryButtons.map((button) => (
+              <Link
+                key={button.name}
+                to={`/horoscopes/weekly/${button.link}/${zodiacSign}`}
+                className="bg-blue uppercase text-white rounded-lg px-4 py-1">
+                {" "}
+                {button.name}
+              </Link>
+            ))}
           </div>
         </div>
         <div className="bg-gray-200 w-full text-center max-w-[35%]">

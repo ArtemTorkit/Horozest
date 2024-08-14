@@ -1,57 +1,53 @@
 import { useParams } from "react-router-dom";
-import HoroscopeNavigation from './HoroscopeNavigation';
-import useFetchDailyHoroscope from "../../hooks/useFetchDailyHoroscope";
+import useFetchHoroscope from "../../hooks/useFetchHoroscope";
 import { useState } from "react";
-import { loading } from "../../assets";
+import { horoscopeDailyType } from "../../constants";
+import DailyHoroscope from "./DailyHoroscope";
 
 type YesterdaysHoroscopeType = {
-  date: string
-}
+  date: string;
+};
 
 const YesterdaysHoroscope = ({ date }: YesterdaysHoroscopeType) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  const { zodiacSign } = useParams<{ zodiacSign?: string }>();
+  const { zodiacSign, category='personal' } = useParams();
   const zodiacSignValue = zodiacSign || "Aries";
-  const { horoscope } = useFetchDailyHoroscope({
+
+  const { horoscope } = useFetchHoroscope<horoscopeDailyType>({
     zodiacSign: zodiacSignValue,
     date: date,
     setIsLoading: setIsLoading,
+    responseType: {} as horoscopeDailyType,
   });
 
+  const horoscopeValue = horoscope || {
+    sign: "Aries",
+    prediction: {
+      personal: "try again",
+      health: "try again",
+      profession: "try again",
+      emotions: "try again",
+      travel: "try again",
+      luck: ["try again"],
+    },
+  };
+
+      function capitalizeFirstLetter(string: string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+      } 
   return (
     <div className="mycontainer">
-      <h1 className="text-4xl font-radlay font-bold mt-9 text-center">
-        Tomorrows {zodiacSign} Horoscope
-      </h1>
-      <p className="text-center mt-2 text-gray-400">
-        ({zodiacSign}, {date})
-      </p>
-      <div className="mt-6 font-raleway flex gap-4">
-        <div className="max-w-[65%]">
-          <HoroscopeNavigation
-            baseLink="/horoscopes/daily/yesterday/"
-            zodiacSign={zodiacSign ?? "Aries"}
-            activeHoroscope={0}
-          />
-
-          <div className="mt-6">
-            <h2 className="font-bold text-xl">
-              Personal {zodiacSign} horoscope
-            </h2>
-            {!isLoading ? (
-              <p className="mt-2">{horoscope?.prediction.personal}</p>
-            ) : (
-              <div className="flex justify-center align-center">
-                <img src={loading} className="w-[40px] h-[40px]" alt="" />
-              </div>
-            )}
-          </div>
-        </div>
-        <div className="bg-gray-200 w-full text-center max-w-[35%]">
-          advertisement
-        </div>
-      </div>
+      <DailyHoroscope
+        title={`Yesterday's ${capitalizeFirstLetter(category)} ${zodiacSign} Horoscope`}
+        horoscope={horoscopeValue.prediction[category]}
+        isLoading={isLoading}
+        zodiacSign={zodiacSignValue}
+        date={date}
+        activeHoroscope={0}
+        time="yesterday"
+        category={category}
+      />
     </div>
   );
 };

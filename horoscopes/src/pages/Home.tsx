@@ -1,3 +1,4 @@
+import CheckCompatibility from '../components/CheckCompatibility';
 import Horoscope from '../components/Horoscope';
 
 const Home = () => {
@@ -10,6 +11,7 @@ const Home = () => {
       </div>
       <div className="">
         <Horoscope />
+        <CheckCompatibility/>
       </div>
     </div>
   );

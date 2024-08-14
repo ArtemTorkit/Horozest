@@ -6,6 +6,12 @@ body {
   background-image: linear-gradient(to right, #FFFFFF, #fedede);
 }
 
+.compatibility-one {
+  background-image: linear-gradient(to right, #EFF31D, #E1A227);
+}
+
+
+
 @layer base {
   .burger-menu {
     @apply flex flex-col justify-around w-[30px] h-[24px] cursor-pointer;
@@ -31,5 +37,8 @@ body {
   }
   nav.active {
     right: 0;
+  }
+  h2 {
+    @apply font-bold  
   }
 }

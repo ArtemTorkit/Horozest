@@ -7,12 +7,14 @@ type HoroscopeNavigationType = {
   zodiacSign: string,
   activeHoroscope: number
   baseLink: string
+  category: string
 }
 
 const HoroscopeNavigation = ({
   zodiacSign,
   activeHoroscope,
-  baseLink
+  baseLink,
+  category
 }: HoroscopeNavigationType) => {
   const navigate = useNavigate();
 
@@ -25,7 +27,7 @@ const HoroscopeNavigation = ({
       {horoscopeButtons.map((button, index) => (
         <Link
           key={button.name}
-          to={`${button.link}${zodiacSign}`}
+          to={`${button.link}${category}/${zodiacSign}`}
           type="button"
           className={`${
             activeHoroscope == index
@@ -39,7 +41,7 @@ const HoroscopeNavigation = ({
         id="zodiac-select"
         value={zodiacSign}
         className="px-4 rounded-xl border bg-[#ececec]"
-        onChange={(e)=>handleChange(e)}>
+        onChange={(e) => handleChange(e)}>
         {zodiacSigns.map((option) => (
           <option key={option.name} value={option.name}>
             {option.name}

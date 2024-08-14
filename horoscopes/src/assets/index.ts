@@ -1,6 +1,12 @@
 import logo from './logo.png'
 import loading from './loading.webp'
 
+import heart from './icons/heart.svg'
+import briefcase from './icons/briefcase.svg'
+import globe from './icons/globe.svg'
+import star from './icons/star.svg'
+import user from './icons/user.svg'
+
 import aries from './zodiac-signs/aries.svg'
 import aquarius from './zodiac-signs/aquarius.svg'
 import cancer from './zodiac-signs/cancer.svg'
@@ -14,10 +20,15 @@ import scorpion from './zodiac-signs/scorpion.svg'
 import taurus from './zodiac-signs/taurus.svg'
 import virgo from './zodiac-signs/virgo.svg'
 
+import checkCompatibility from './compatibility/checkCompatibility.jpg'
 
 export {
     logo,
-
+    heart,
+    briefcase,
+    globe,
+    star,
+    user,
     loading,
     
     aries,
@@ -31,5 +42,7 @@ export {
     sagittarius,
     scorpion,
     taurus,
-    virgo
+    virgo,
+
+    checkCompatibility,
 }

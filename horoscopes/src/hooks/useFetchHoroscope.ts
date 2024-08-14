@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
-import { horoscopeType } from '../constants';
 
-type FetchDailyHoroscopeProps = {
+type FetchHoroscopeProps<T> = {
   zodiacSign: string;
   date: string;
   endpoint?: string;
-  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>
-}
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  responseType: T; // Тип відповіді
+};
 
-const FetchDailyHoroscopeProps = ({ zodiacSign, date, endpoint, setIsLoading}: FetchDailyHoroscopeProps) => {
-  const [horoscope, setHoroscope] = useState<horoscopeType>();
+const FetchHoroscopeProps = <T>({ zodiacSign, date, endpoint, setIsLoading}: FetchHoroscopeProps<T>) => {
+  const [horoscope, setHoroscope] = useState<T>();
 
   useEffect(() => {
     const formData = new FormData();
@@ -55,4 +55,4 @@ const FetchDailyHoroscopeProps = ({ zodiacSign, date, endpoint, setIsLoading}: F
   return { horoscope };
 };
 
-export default FetchDailyHoroscopeProps;
+export default FetchHoroscopeProps;
