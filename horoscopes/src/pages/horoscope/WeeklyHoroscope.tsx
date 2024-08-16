@@ -35,7 +35,7 @@ const WeeklyHoroscope = () => {
       <div className="mt-6 font-raleway flex gap-4">
         <div className="max-w-[65%]">
           <HoroscopeNavigation
-            baseLink="/horoscopes/weekly/"
+            baseLink={`/horoscopes/weekly/${category}/`}
             zodiacSign={zodiacSign ?? "Aries"}
             activeHoroscope={3}
             category={category}
@@ -46,7 +46,13 @@ const WeeklyHoroscope = () => {
               {capitalizeFirstLetter(category)} {zodiacSign} horoscope
             </h2>
             {!isLoading ? (
-              <p className="mt-2">{horoscope?.weekly_horoscope[category]}</p>
+              <p className="mt-2">
+                {
+                  horoscope?.weekly_horoscope[
+                    category as keyof typeof horoscope.weekly_horoscope
+                  ]
+                }
+              </p>
             ) : (
               <div className="flex justify-center align-center">
                 <img
@@ -64,10 +70,19 @@ const WeeklyHoroscope = () => {
             {horoscopeCategoryButtons.map((button) => (
               <Link
                 key={button.name}
-                to={`/horoscopes/weekly/${button.link}/${zodiacSign}`}
-                className="bg-blue uppercase text-white rounded-lg px-4 py-1">
+                to={`/horoscopes/daily/weekly/${button.link}/${zodiacSign}`}
+                className={`${
+                  category == button.name.toLocaleLowerCase()
+                    ? "bg-gray-400"
+                    : "bg-blue hover:bg-[#2f52c4]"
+                }  shadow shadow-lg hover:shadow-sm transition uppercase text-white rounded-lg px-4 py-1 flex gap-2 align-center`}>
                 {" "}
-                {button.name}
+                <img
+                  src={button.icon}
+                  className="relative bottom-[1px] w-[20px]"
+                  alt=""
+                />
+                <div className="">{button.name}</div>
               </Link>
             ))}
           </div>

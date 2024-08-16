@@ -1,5 +1,8 @@
 import CheckCompatibility from '../components/CheckCompatibility';
+import CheckMonthlyHoroscope from '../components/CheckMonthlyHoroscope';
+import CoffeeReading from '../components/CoffeeReading';
 import Horoscope from '../components/Horoscope';
+import ViewHoroscope from '../components/ViewHoroscope';
 
 const Home = () => {
   return (
@@ -11,7 +14,10 @@ const Home = () => {
       </div>
       <div className="">
         <Horoscope />
-        <CheckCompatibility/>
+        <CheckMonthlyHoroscope/>
+        <CheckCompatibility />
+        <CoffeeReading/>
+        <ViewHoroscope/>
       </div>
     </div>
   );

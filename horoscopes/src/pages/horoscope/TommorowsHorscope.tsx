@@ -9,7 +9,10 @@ type TommorowsHorscopeType = {
 };
 const TommorowsHorscope = ({ date }: TommorowsHorscopeType) => {
   const [isLoading, setIsLoading] = useState<boolean>(true)
-  const { zodiacSign, category='personal' } = useParams();
+  const { zodiacSign, category = "personal" } = useParams<{
+    zodiacSign: string;
+    category: keyof horoscopeDailyType["prediction"];
+  }>();
 
   const zodiacSignValue = zodiacSign || "Aries";
 
@@ -38,16 +41,22 @@ const TommorowsHorscope = ({ date }: TommorowsHorscopeType) => {
 
   return (
     <div className="mycontainer">
-      <DailyHoroscope
-        title={`Tomorrow's ${capitalizeFirstLetter(category)} ${zodiacSign} Horoscope`}
-        horoscope={horoscopeValue.prediction[category]}
-        isLoading={isLoading}
-        zodiacSign={zodiacSignValue}
-        date={date}
-        activeHoroscope={2}
-        time="tomorrow"
-        category={category}
-      />
+      {category === "luck" ? (
+        <p>Your luck prediction is in progress.</p> // You can customize this message or component
+      ) : (
+        <DailyHoroscope
+          title={`Tomorrow's ${capitalizeFirstLetter(
+            category
+          )} ${zodiacSign} Horoscope`}
+          horoscope={horoscopeValue.prediction[category] as string}
+          isLoading={isLoading}
+          zodiacSign={zodiacSignValue}
+          date={date}
+          activeHoroscope={2}
+          time="today"
+          category={category}
+        />
+      )}
     </div>
   );
 };

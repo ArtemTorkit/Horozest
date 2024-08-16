@@ -33,7 +33,7 @@ const MonthlyHoroscope = () => {
       <div className="mt-6 font-raleway flex gap-4">
         <div className="max-w-[65%]">
           <HoroscopeNavigation
-            baseLink="/horoscopes/monthly/"
+            baseLink={`/horoscopes/monthly/${category}/`}
             zodiacSign={zodiacSign ?? "Aries"}
             activeHoroscope={4}
             category={category}
@@ -44,7 +44,13 @@ const MonthlyHoroscope = () => {
               {capitalizeFirstLetter(category)} {zodiacSign} horoscope
             </h2>
             {!isLoading ? (
-              <p className="mt-2">{horoscope?.monthly_horoscope[category]}</p>
+              <p className="mt-2">
+                {
+                  horoscope?.monthly_horoscope[
+                    category as keyof typeof horoscope.monthly_horoscope
+                  ]
+                }
+              </p>
             ) : (
               <div className="flex justify-center align-center">
                 <img src={loading} className="w-[40px] h-[40px]" alt="" />
@@ -58,10 +64,19 @@ const MonthlyHoroscope = () => {
             {horoscopeCategoryButtons.map((button) => (
               <Link
                 key={button.name}
-                to={`/horoscopes/monthly/${button.link}/${zodiacSign}`}
-                className="bg-blue uppercase text-white rounded-lg px-4 py-1">
+                to={`/horoscopes/daily/monthly/${button.link}/${zodiacSign}`}
+                className={`${
+                  category == button.name.toLocaleLowerCase()
+                    ? "bg-gray-400"
+                    : "bg-blue hover:bg-[#2f52c4]"
+                }  shadow shadow-lg hover:shadow-sm transition uppercase text-white rounded-lg px-4 py-1 flex gap-2 align-center`}>
                 {" "}
-                {button.name}
+                <img
+                  src={button.icon}
+                  className="relative bottom-[1px] w-[20px]"
+                  alt=""
+                />
+                <div className="">{button.name}</div>
               </Link>
             ))}
           </div>

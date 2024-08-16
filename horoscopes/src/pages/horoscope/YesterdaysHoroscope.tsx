@@ -11,7 +11,10 @@ type YesterdaysHoroscopeType = {
 const YesterdaysHoroscope = ({ date }: YesterdaysHoroscopeType) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  const { zodiacSign, category='personal' } = useParams();
+  const { zodiacSign, category = "personal" } = useParams<{
+    zodiacSign: string;
+    category: keyof horoscopeDailyType["prediction"];
+  }>();
   const zodiacSignValue = zodiacSign || "Aries";
 
   const { horoscope } = useFetchHoroscope<horoscopeDailyType>({
@@ -38,18 +41,23 @@ const YesterdaysHoroscope = ({ date }: YesterdaysHoroscopeType) => {
       } 
   return (
     <div className="mycontainer">
-      <DailyHoroscope
-        title={`Yesterday's ${capitalizeFirstLetter(category)} ${zodiacSign} Horoscope`}
-        horoscope={horoscopeValue.prediction[category]}
-        isLoading={isLoading}
-        zodiacSign={zodiacSignValue}
-        date={date}
-        activeHoroscope={0}
-        time="yesterday"
-        category={category}
-      />
-    </div>
-  );
-};
+      {category === "luck" ? (
+        <p>Your luck prediction is in progress.</p>
+      ) : (
+        <DailyHoroscope
+          title={`Tomorrow's ${capitalizeFirstLetter(
+            category
+          )} ${zodiacSign} Horoscope`}
+          horoscope={horoscopeValue.prediction[category] as string}
+          isLoading={isLoading}
+          zodiacSign={zodiacSignValue}
+          date={date}
+          activeHoroscope={0}
+          time="today"
+          category={category}
+        />
+      )}
+      </div>
+)};
 
 export default YesterdaysHoroscope

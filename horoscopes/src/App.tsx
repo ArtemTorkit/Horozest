@@ -7,7 +7,7 @@ import MonthlyHoroscope from "./pages/horoscope/MonthlyHoroscope";
 import WeeklyHoroscope from "./pages/horoscope/WeeklyHoroscope";
 import ZodiacSign from "./pages/ZodiacSign";
 import LoveCompatibility from "./pages/compatibility/LoveCompatibility";
-import CareerCompatibility from "./pages/compatibility/CareerCompatibility";
+import SexCompatibility from "./pages/compatibility/SexCompatibility";
 import FriendshipCompatibility from "./pages/compatibility/FriendshipCompatibility";
 import Article from "./pages/articles/Article";
 import Articles from "./pages/articles/Articles";
@@ -15,6 +15,8 @@ import QuoteOfTheDay from "./pages/articles/QuoteOfTheDay";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import YesterdaysHoroscope from "./pages/horoscope/YesterdaysHoroscope";
 import TommorowsHorscope from "./pages/horoscope/TommorowsHorscope";
+import CoffeeCupReading from "./pages/articles/CoffeeCupReading";
+import MonthlySummary from "./pages/articles/MonthlySummary";
 
 
 const formatDate = (date: Date): string => {
@@ -74,7 +76,7 @@ function App() {
           />
           <Route
             path="/zodiac-signs/career/compatibility"
-            element={<CareerCompatibility />}
+            element={<SexCompatibility />}
           />
           <Route
             path="/zodiac-signs/friendship/compatibility"
@@ -82,6 +84,8 @@ function App() {
           />
           <Route path="/articles/:articleId" element={<Article />} />
           <Route path="/articles" element={<Articles />} />
+          <Route path="/articles/coffee-cup-reading" element={<CoffeeCupReading />} />
+          <Route path="/articles/monthly-summary" element={<MonthlySummary />} />
           <Route
             path="/articles/quotes/quote-of-the-day"
             element={<QuoteOfTheDay />}
