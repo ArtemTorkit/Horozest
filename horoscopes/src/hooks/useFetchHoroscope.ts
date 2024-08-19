@@ -38,7 +38,7 @@ const FetchHoroscopeProps = <T>({ zodiacSign, date, endpoint, setIsLoading}: Fet
         });
 
         const data = await response.json();
-        console.log(data)
+        // console.log(data)
         setHoroscope(data.data);
         setIsLoading(false)
       } catch (error) {

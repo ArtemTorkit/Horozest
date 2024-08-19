@@ -6,12 +6,11 @@ const ViewHoroscope = () => {
     <section className="mycontainer mt-[100px]">
       <div className="flex items-center gap-4">
         <div className="w-full">
-          <h2 className="text-3xl font-radlay">Get Your Horoscope</h2>
-          <p className="mt-6">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Asperiores, nostrum veniam laudantium non distinctio architecto
-            doloribus officia nam, quia earum deserunt accusamus ab mollitia
-            optio nulla. Consectetur sed alias consequuntur.
+          <h2 className="text-3xl font-radlay">Discover Your Horoscope</h2>
+          <p className="mt-6 text-gray-700 max-w-[700px]">
+            Curious about what the stars have in store for you? Click the button
+            below to explore your personalized horoscope and uncover insights
+            about your day, week, or even month ahead.
           </p>
           <div className="w-full text-white uppercase flex mt-6 gap-4 flex flex-wrap">
             <Link

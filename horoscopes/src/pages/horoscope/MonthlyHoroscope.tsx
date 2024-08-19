@@ -5,6 +5,9 @@ import { horoscopeCategoryButtons } from "../../constants";
 import { useState } from "react";
 import { loading } from "../../assets";
 import { horoscopeMonthlyType } from "../../constants";
+import SideContent from "../../components/SideContent";
+import { Helmet } from "react-helmet";
+
 const MonthlyHoroscope = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -24,6 +27,14 @@ const MonthlyHoroscope = () => {
   
   return (
     <div className="mycontainer">
+      <Helmet>
+        <title>{zodiacSign} Horoscopes: Monthly | horozest.com</title>
+        <meta
+          name="description"
+          content={`Get your free monthly ${zodiacSign} horoscope on horozest.com. See what the stars have in store for you this month!
+`}
+        />
+      </Helmet>
       <h1 className="text-4xl font-radlay font-bold mt-9 text-center">
         Monthly {capitalizeFirstLetter(category)} {zodiacSign} Horoscope
       </h1>
@@ -64,7 +75,7 @@ const MonthlyHoroscope = () => {
             {horoscopeCategoryButtons.map((button) => (
               <Link
                 key={button.name}
-                to={`/horoscopes/daily/monthly/${button.link}/${zodiacSign}`}
+                to={`/horoscopes/monthly/${button.link}/${zodiacSign}`}
                 className={`${
                   category == button.name.toLocaleLowerCase()
                     ? "bg-gray-400"
@@ -85,6 +96,7 @@ const MonthlyHoroscope = () => {
           advertisement
         </div>
       </div>
+      <SideContent />
     </div>
   );
 };

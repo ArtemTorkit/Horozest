@@ -5,6 +5,8 @@ import { useState } from 'react';
 import { loading } from "../../assets";
 import { horoscopeWeeklyType } from "../../constants";
 import { horoscopeCategoryButtons } from "../../constants";
+import SideContent from "../../components/SideContent";
+import { Helmet } from "react-helmet";
 
 const WeeklyHoroscope = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true)
@@ -26,6 +28,14 @@ const WeeklyHoroscope = () => {
 
   return (
     <div className="mycontainer">
+      <Helmet>
+        <title>{zodiacSign} Horoscopes: Weekly | horozest.com</title>
+        <meta
+          name="description"
+          content={`Explore your free weekly ${zodiacSign} horoscope on horozest.com. Discover what the stars predict for your week ahead!
+`}
+        />
+      </Helmet>
       <h1 className="text-4xl font-radlay font-bold mt-9 text-center">
         Weekly {capitalizeFirstLetter(category)} {zodiacSign} Horoscope
       </h1>
@@ -70,7 +80,7 @@ const WeeklyHoroscope = () => {
             {horoscopeCategoryButtons.map((button) => (
               <Link
                 key={button.name}
-                to={`/horoscopes/daily/weekly/${button.link}/${zodiacSign}`}
+                to={`/horoscopes/weekly/${button.link}/${zodiacSign}`}
                 className={`${
                   category == button.name.toLocaleLowerCase()
                     ? "bg-gray-400"
@@ -91,6 +101,7 @@ const WeeklyHoroscope = () => {
           advertisement
         </div>
       </div>
+      <SideContent />
     </div>
   );
 }

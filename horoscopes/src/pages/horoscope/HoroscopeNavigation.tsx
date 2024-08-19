@@ -23,7 +23,7 @@ const HoroscopeNavigation = ({
   }
 
   return (
-    <div className="font-raleway flex flex-wrap justify-center gap-6 border-b border-[#D9D9D9] pb-2 text-[0.8rem] sm:text-[0.7 rem]">
+    <div className="font-raleway flex flex-wrap sm:justify-center justify-around gap-6 border-b border-[#D9D9D9] pb-2 text-[0.8rem] sm:text-[1 rem]">
       {horoscopeButtons.map((button, index) => (
         <Link
           key={button.name}

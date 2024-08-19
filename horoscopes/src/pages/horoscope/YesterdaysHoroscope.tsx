@@ -3,6 +3,7 @@ import useFetchHoroscope from "../../hooks/useFetchHoroscope";
 import { useState } from "react";
 import { horoscopeDailyType } from "../../constants";
 import DailyHoroscope from "./DailyHoroscope";
+import { Helmet } from "react-helmet";
 
 type YesterdaysHoroscopeType = {
   date: string;
@@ -41,6 +42,13 @@ const YesterdaysHoroscope = ({ date }: YesterdaysHoroscopeType) => {
       } 
   return (
     <div className="mycontainer">
+      <Helmet>
+        <title>{zodiacSign} Horoscopes: Yesterday | horozest.com</title>
+        <meta
+          name="description"
+          content={`Review your free ${zodiacSign} horoscope for yesterday on horozest.com. Discover how yesterday's planetary shifts influenced your day.`}
+        />
+      </Helmet>
       {category === "luck" ? (
         <p>Your luck prediction is in progress.</p>
       ) : (
@@ -57,7 +65,7 @@ const YesterdaysHoroscope = ({ date }: YesterdaysHoroscopeType) => {
           category={category}
         />
       )}
-      </div>
-)};
+    </div>
+  );};
 
 export default YesterdaysHoroscope

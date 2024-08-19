@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { briefcase, checkCompatibility, gemini, heart, pisces } from '../assets'
 import { Link } from 'react-router-dom';
 
@@ -9,7 +9,7 @@ const CheckCompatibility = () => {
         <h2 className="font-radlay text-4xl">
           Check Your Zodiac Sign Compatibility
         </h2>
-        <p className="">
+        <p className="text-gray-700">
           Check how your zodiac sign aligns with others. Uncover the potential
           strengths and challenges in your relationships. Explore the cosmic
           connection between you and your partner. Gain insights into your love
@@ -20,19 +20,24 @@ const CheckCompatibility = () => {
           <Link
             to={"/zodiac-signs/love/compatibility"}
             className="bg-blue rounded-lg px-4 py-1 text-white flex gap-2 ">
-            <img src={heart} loading="lazy" alt="" />
+            <img src={heart} loading="lazy" className="w-full h-full" alt="" />
             <div className="">LOVE</div>
           </Link>
           <Link
             to={"/zodiac-signs/career/compatibility"}
             className="bg-blue rounded-lg px-4 py-1 text-white flex gap-2 ">
-            <img src={heart} loading="lazy" alt="" />
+            <img src={heart} loading="lazy" className="w-full h-full" alt="" />
             <div className="">SEX</div>
           </Link>
           <Link
             to={"/zodiac-signs/friendship/compatibility"}
             className="bg-blue rounded-lg px-4 py-1 text-white flex gap-2 ">
-            <img src={briefcase} loading="lazy" alt="" />
+            <img
+              src={briefcase}
+              loading="lazy"
+              className="w-full h-full"
+              alt=""
+            />
             <div className="">FRIENDSHIP</div>
           </Link>
         </div>

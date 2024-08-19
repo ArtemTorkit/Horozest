@@ -1,23 +1,17 @@
-import CheckCompatibility from '../components/CheckCompatibility';
-import CheckMonthlyHoroscope from '../components/CheckMonthlyHoroscope';
-import CoffeeReading from '../components/CoffeeReading';
 import Horoscope from '../components/Horoscope';
-import ViewHoroscope from '../components/ViewHoroscope';
+import SideContent from '../components/SideContent';
 
 const Home = () => {
   return (
     <div className="mycontainer">
-      <div className="text-center mt-[30px]">
-        <h1 className="font-radlay text-[2rem] sm:text-[2.5rem]">
+      <div className="text-center md:mt-[30px]">
+        <h1 className="font-radlay font-bold text-[1.8rem] sm:text-[2.5rem]">
           Choose Your Horoscope Sign
         </h1>
       </div>
       <div className="">
         <Horoscope />
-        <CheckMonthlyHoroscope/>
-        <CheckCompatibility />
-        <CoffeeReading/>
-        <ViewHoroscope/>
+        <SideContent/>
       </div>
     </div>
   );

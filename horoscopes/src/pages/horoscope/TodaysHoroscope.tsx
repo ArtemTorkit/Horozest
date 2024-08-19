@@ -3,6 +3,7 @@ import { useState } from "react";
 import { horoscopeDailyType } from "../../constants";
 import DailyHoroscope from "./DailyHoroscope";  
 import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet";
 type TodaysHoroscopeType = {
   date: string
 }
@@ -42,6 +43,13 @@ const TodaysHoroscope = ({ date  }: TodaysHoroscopeType) => {
   
     return (
       <div className="mycontainer font-raleway">
+        <Helmet>
+          <title>{zodiacSign} Horoscopes: Today | horozest.com</title>
+          <meta
+            name="description"
+            content={`Check your free daily ${zodiacSign} horoscope on horozest.com. See what the planets reveal about your day today!`}
+          />
+        </Helmet>
         {category === "luck" ? (
           <p>Your luck prediction is in progress.</p> // You can customize this message or component
         ) : (

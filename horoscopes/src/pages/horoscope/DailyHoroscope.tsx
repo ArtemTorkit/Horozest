@@ -2,6 +2,7 @@ import HoroscopeNavigation from './HoroscopeNavigation'
 import { loading } from '../../assets'
 import { Link } from "react-router-dom";
 import { horoscopeCategoryButtons } from "../../constants";
+import SideContent from '../../components/SideContent';
 
 type DaillyHoroscopeType = {
     title: string
@@ -87,6 +88,7 @@ function capitalizeFirstLetter(string:string) {
           advertisement
         </div>
       </div>
+      <SideContent/>
     </div>
   );
 };

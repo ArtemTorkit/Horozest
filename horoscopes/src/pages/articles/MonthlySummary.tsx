@@ -1,21 +1,13 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { horoscopeMonthlyType } from "../../constants";
-import useFetchHoroscope from "../../hooks/useFetchHoroscope";
 import { loading } from "../../assets";
 import { zodiacSigns } from "../../constants";
-
+import SideContent from "../../components/SideContent";
+import { Helmet } from "react-helmet";
 const MonthlySummary = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [horoscopeData, setHoroscopeData] = useState({});
+  const [horoscopeData, setHoroscopeData] = useState<horoscopeMonthlyType | null>(null);
   const [zodiacSign, setZodiacSign] = useState<string>("Aries");
-
-  // setHoroscopeData(useFetchHoroscope<horoscopeMonthlyType>({
-  //     zodiacSign: zodiacSign,
-  //     date: "current",
-  //     setIsLoading: setIsLoading,
-  //     endpoint: "https://divineapi.com/api/1.0/get_monthly_horoscope.php",
-  //     responseType: {} as horoscopeMonthlyType,
-  // }))
 
   useEffect(() => {
     const formData = new FormData();
@@ -29,7 +21,7 @@ const MonthlySummary = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data.data);
+        // console.log(data.data);
         setIsLoading(false);
         setHoroscopeData(data.data);
       })
@@ -41,6 +33,13 @@ const MonthlySummary = () => {
 
     return (
       <section className="mycontainer">
+        <Helmet>
+          <title>Monthly Horoscope Summary | horozest.com</title>
+          <meta
+            name="description"
+            content="Get your monthly horoscope summary on horozest.com. Discover the key astrological highlights and insights for your zodiac sign this month."
+          />
+        </Helmet>
         <h1 className="font-radlay text-4xl mt-9">Monthly Horoscope Summary</h1>
         <select
           id="zodiac-select"
@@ -53,32 +52,34 @@ const MonthlySummary = () => {
             </option>
           ))}
         </select>
-        <div className="mt-6 max-w-[70%]">
+        <div className="mt-6 ">
           {!isLoading ? (
-            <div className="">
+            <div className="text-lg">
               <p className="mt-2">
                 {horoscopeData?.monthly_horoscope.personal}
               </p>
               <h2 className="text-xl mt-9">HEALTH</h2>
-              <div className="mt-4">
+              <div className="mt-4 v">
                 {horoscopeData?.monthly_horoscope.health}
               </div>
               <h2 className="text-xl mt-9">PROFESSION</h2>
-              <div className="mt-4">
+              <div className="mt-4 text-lg">
                 {horoscopeData?.monthly_horoscope.profession}
               </div>
               <h2 className="text-xl mt-9">EMOTIONS</h2>
-              <div className="mt-4">
+              <div className="mt-4 text-lg">
                 {horoscopeData?.monthly_horoscope.emotions}
               </div>
               <h2 className="text-xl mt-9">TRAVEL</h2>
-              <div className="mt-4">
+              <div className="mt-4 text-lg">
                 {horoscopeData?.monthly_horoscope.travel}
               </div>
               <h2 className="text-xl mt-9">LUCK</h2>
               <div className="mt-4">
                 {horoscopeData?.monthly_horoscope.luck.map((text: string) => (
-                  <p key={text} className="mt-1">{text}</p>
+                  <p key={text} className="mt-1 text-lg">
+                    {text}
+                  </p>
                 ))}
               </div>
             </div>
@@ -88,6 +89,7 @@ const MonthlySummary = () => {
             </div>
           )}
         </div>
+        <SideContent />
       </section>
     );
 };

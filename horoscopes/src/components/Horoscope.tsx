@@ -18,7 +18,6 @@ const Horoscope = () => {
     );
 
     const handleMouseEnter = (index: number) => {
-        console.log('over: ', index)
         setEnteredOnSigns((prevSigns) => {
           const newSigns = [...prevSigns];
           newSigns[index] = true;
@@ -32,7 +31,6 @@ const Horoscope = () => {
             });
         },1000)
     }
-    console.log('render horoscope component')
 
   return (
     <div className="mycontainer mt-9 ">
@@ -58,12 +56,12 @@ const Horoscope = () => {
                   }}></div>
               </div>
               <div className="absolute w-full h-full flex align-center justify-center">
-                <img src={sign.sign} alt={sign.name} className=" w-[40px] " />
+                <img src={sign.sign} alt={sign.name} className="w-[40px] h-full" />
               </div>
             </div>
 
             <div className="mt-2">{sign.name}</div>
-            <div className="text-gray-400">
+            <div className="text-gray-400 text-sm">
               {sign.startDate} - {sign.endDate}
             </div>
           </Link>

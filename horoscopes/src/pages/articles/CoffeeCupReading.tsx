@@ -1,10 +1,18 @@
-import React from 'react'
 import { useState, useEffect } from 'react'
 import { loading, reload } from '../../assets'
-import CheckCompatibility from '../../components/CheckCompatibility'
+import SideContent from '../../components/SideContent'
+import { Helmet } from 'react-helmet'
+
+type CoffeeCupDataType = {
+  prediction: {
+    present_image: string
+    present_title: string
+    present_content: string
+  };
+};
 
 const CoffeeCupReading = () => {
-  const [coffeeData, setCoffeeData] = useState(null)
+  const [coffeeData, setCoffeeData] = useState<CoffeeCupDataType | null>(null);
     const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
@@ -17,7 +25,7 @@ const CoffeeCupReading = () => {
      })
        .then((response) => response.json())
        .then((data) => {
-           console.log(data.data); // Handle the response data
+           console.log(data.data);
            setCoffeeData(data.data)
            setIsLoading(false)
        })
@@ -29,6 +37,15 @@ const CoffeeCupReading = () => {
   }, [])
     return (
       <section className="mycontainer">
+        <Helmet>
+          <title>
+            Coffee Cup Reading: Short Astrology Articles | horozest.com
+          </title>
+          <meta
+            name="description"
+            content="Enjoy quick and insightful astrology articles while you sip your coffee. Perfect for a brief yet enlightening break on horozest.com."
+          />
+        </Helmet>
         <h1 className="text-center font-radlay text-4xl mt-9">
           Random Coffee Cup Reading
         </h1>
@@ -74,7 +91,7 @@ const CoffeeCupReading = () => {
             </div>
           </div>
         )}
-        <CheckCompatibility />
+        <SideContent />
       </section>
     );
 }

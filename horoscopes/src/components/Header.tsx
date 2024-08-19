@@ -10,9 +10,11 @@ const Header = () => {
       <div className="mycontainer flex lg:block">
         <div className="w-full flex justify-between my-6 items-center">
           <div className="lg:w-[200px] lg:block hidden"></div>
-          <Link to={'/'} className="flex-1 flex justify-center">
-            <img src={logo} alt="Logo" className="h-[33px]" />
-          </Link>
+          <div className="">
+            <Link to={"/"} className="flex-1 flex md:justify-center">
+              <img src={logo} alt="Logo" className="h-[33px] w-[183px]" />
+            </Link>
+          </div>
           <div className="lg:w-[200px] flex justify-end ">
             <div
               className={`burger-menu lg:hidden ${burger ? "active" : ""}`}
@@ -44,12 +46,14 @@ const Header = () => {
             <li
               className="transition hover:text-purple hover:scale-[1.05]"
               onClick={() => setBurger(false)}>
-              <Link to="/zodiac-signs/aries">ZODIAC SIGNS</Link>
+              <Link to="/zodiac-signs">ZODIAC SIGNS</Link>
             </li>
             <li
               className="transition hover:text-purple hover:scale-[1.05]"
               onClick={() => setBurger(false)}>
-              <Link to="/horoscopes/daily/aries">HOROSCOPES</Link>
+              <Link to="/horoscopes/daily/today/personal/Aries">
+                HOROSCOPES
+              </Link>
             </li>
             <li
               className="transition hover:text-purple hover:scale-[1.05]"
@@ -61,13 +65,8 @@ const Header = () => {
               </Link>
             </li>
             <li
-              className="transition hover:text-purple hover:scale-[1.05]"
-              onClick={() => setBurger(false)}>
-              <Link to="/zodiac-signs/love/compatibility">DAILY ASTROLOGY</Link>
-            </li>
-            <li
               onClick={() => setBurger(false)}
-              className=" hover:scale-[1.05] cursor-pointer lg:hidden text-black hover:text-purple transition flex justify-center">
+              className=" hover:scale-[1.05] cursor-pointer lg:hidden text-white hover:text-purple transition flex justify-center">
               <svg
                 width="30px"
                 height="30px"

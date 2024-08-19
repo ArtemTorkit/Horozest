@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { Link } from 'react-router-dom';
 
 
@@ -26,7 +26,7 @@ const Footer = () => {
             <Link to="/zodiac-signs/love/compatibility">DAILY ASTROLOGY</Link>
           </li>
           <li className="transition hover:text-purple hover:scale-[1.05]">
-            <Link to="/zodiac-signs/love/compatibility">PRIVACY</Link>
+            <Link to="/privacy">PRIVACY</Link>
           </li>
         </ul>
       </div>

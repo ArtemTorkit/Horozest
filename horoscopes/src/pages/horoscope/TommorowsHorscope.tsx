@@ -3,6 +3,7 @@ import DailyHoroscope from "./DailyHoroscope";
 import useFetchHoroscope from '../../hooks/useFetchHoroscope'
 import { useState } from "react";
 import { horoscopeDailyType } from "../../constants";
+import { Helmet } from "react-helmet";
 
 type TommorowsHorscopeType = {
   date: string;
@@ -38,9 +39,16 @@ const TommorowsHorscope = ({ date }: TommorowsHorscopeType) => {
   function capitalizeFirstLetter(string: string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
-
   return (
     <div className="mycontainer">
+      <Helmet>
+        <title>{zodiacSign} Horoscopes: Tomorrow | horozest.com</title>
+        <meta
+          name="description"
+          content={`Preview your free daily ${zodiacSign} horoscope for tomorrow on horozest.com. Find out what the planets have planned for you.
+`}
+        />
+      </Helmet>
       {category === "luck" ? (
         <p>Your luck prediction is in progress.</p> // You can customize this message or component
       ) : (
