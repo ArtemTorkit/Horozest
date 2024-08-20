@@ -10,18 +10,20 @@ const MonthlySummary = () => {
   const [zodiacSign, setZodiacSign] = useState<string>("Aries");
 
   useEffect(() => {
-    const formData = new FormData();
+    const bodyData = {
+      zodiacSign: zodiacSign || 'Aries',
+    };
 
-    formData.append("sign", zodiacSign.toUpperCase());
-    formData.append("api_key", import.meta.env.VITE_DIVINE_API_KEY);
-    formData.append("month", "current");
-    fetch("https://divineapi.com/api/1.0/get_monthly_horoscope.php", {
+    fetch("http://localhost:3000/monthly-summary", {
       method: "POST",
-      body: formData,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(bodyData),
     })
       .then((response) => response.json())
       .then((data) => {
-        // console.log(data.data);
+        console.log(data.data);
         setIsLoading(false);
         setHoroscopeData(data.data);
       })

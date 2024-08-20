@@ -37,17 +37,23 @@ const HoroscopeNavigation = ({
           {button.name}
         </Link>
       ))}
-      <select
-        id="zodiac-select"
-        value={zodiacSign}
-        className="px-4 rounded-xl border bg-[#ececec]"
-        onChange={(e) => handleChange(e)}>
-        {zodiacSigns.map((option) => (
-          <option key={option.name} value={option.name}>
-            {option.name}
-          </option>
-        ))}
-      </select>
+      <div className="flex gap-2">
+        <label htmlFor="zodiac-select" className="font-raleway font-bold">
+          Selected Sign:
+        </label>
+        <select
+          id="zodiac-select"
+          name="zodiac-select"
+          value={zodiacSign}
+          className="px-4 rounded-xl border bg-[#ececec]"
+          onChange={(e) => handleChange(e)}>
+          {zodiacSigns.map((option) => (
+            <option key={option.name} value={option.name}>
+              {option.name}
+            </option>
+          ))}
+        </select>
+      </div>
     </div>
   );
 };

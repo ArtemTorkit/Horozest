@@ -16,22 +16,17 @@ const CoffeeCupReading = () => {
     const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-     const formData = new FormData();
-     formData.append("api_key", import.meta.env.VITE_DIVINE_API_KEY);
-
-     fetch("https://divineapi.com/api/1.0/get_coffee_cup_reading.php", {
+     fetch("http://localhost:3000/coffee-cup-reading", {
        method: "POST",
-       body: formData,
      })
        .then((response) => response.json())
        .then((data) => {
-           console.log(data.data);
-           setCoffeeData(data.data)
-           setIsLoading(false)
+         console.log(data.data);
+         setCoffeeData(data.data);
+         setIsLoading(false);
        })
-         .catch((error) => {
-           setIsLoading(false);
-           
+       .catch((error) => {
+         setIsLoading(false);
          console.error("Error:", error); // Handle any errors that occur
        });
   }, [])

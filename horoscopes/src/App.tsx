@@ -3,6 +3,7 @@ import { lazy, Suspense } from "react";
 
 
 import ScrollToTop from "./components/ScrollToTop";
+import ErrorPage from "./pages/404";
 
 const Home = lazy(() => import("./pages/Home"));
 const MainLayout = lazy(() => import("./layouts/MainLayout"));
@@ -111,6 +112,7 @@ function App() {
               element={<MonthlySummary />}
             />
             <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="*" element={<ErrorPage/>}/>
           </Route>
         </Routes>
       </Suspense>

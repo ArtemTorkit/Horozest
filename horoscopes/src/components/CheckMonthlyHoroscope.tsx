@@ -6,7 +6,7 @@ const CheckMonthlyHoroscope = () => {
   return (
     <section className="">
       <Link
-        to={"/"}
+        to={"/articles/monthly-summary"}
         className="bg-[#000] flex flex-col items-center lg:items-start lg:flex-row lg:gap-9 rounded-xl px-9 mt-[100px] shadow-xl">
         <div className="lg:py-2 py-4 text-white flex flex-col justify-center text-center lg:text-left ">
           <h2 className="text-4xl font-radlay mb-2">
