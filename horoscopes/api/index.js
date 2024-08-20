@@ -7,7 +7,7 @@ import cors from 'cors';
 dotenv.config();
 
 const app = express();
-app.use(cors({ origin: 'https://horozest.com' }));
+app.use(cors({ origin: 'http://localhost:5173' }));
 app.use(express.json());
 
 app.post('/horoscope', async (req, res) => {
