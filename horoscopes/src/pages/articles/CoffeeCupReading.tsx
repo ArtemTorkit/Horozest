@@ -16,7 +16,7 @@ const CoffeeCupReading = () => {
     const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-     fetch("http://localhost:3000/coffee-cup-reading", {
+     fetch("https://horozest.vercel.app/coffee-cup-reading", {
        method: "POST",
      })
        .then((response) => response.json())

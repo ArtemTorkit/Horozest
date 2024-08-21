@@ -9,10 +9,10 @@ const LoveCompatibility = () => {
     <>
       <section className="mycontainer">
         <Helmet>
-          <title>Zodiac Sign Sex Compatibility | horozest.com</title>
+          <title>Zodiac Sign Love Compatibility | horozest.com</title>
           <meta
             name="description"
-            content="Uncover zodiac sign sex compatibility on horozest.com. Explore how the stars influence sexual chemistry and connection between signs."
+            content="Uncover zodiac sign love compatibility on horozest.com. Explore how the stars influence chemistry and connection between signs."
           />
         </Helmet>
 

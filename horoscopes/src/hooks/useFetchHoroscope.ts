@@ -18,7 +18,7 @@ const useFetchHoroscope = <T>({ zodiacSign, date, endpoint, setIsLoading }: Fetc
     endpoint: endpoint,
   };
 
-fetch('http://localhost:3000/horoscope', {
+fetch('https://horozest.vercel.app/horoscope', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'

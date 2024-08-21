@@ -14,7 +14,7 @@ const MonthlySummary = () => {
       zodiacSign: zodiacSign || 'Aries',
     };
 
-    fetch("http://localhost:3000/monthly-summary", {
+    fetch("https://horozest.vercel.app/monthly-summary", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

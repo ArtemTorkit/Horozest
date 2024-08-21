@@ -61,7 +61,7 @@ const YesterdaysHoroscope = ({ date }: YesterdaysHoroscopeType) => {
           zodiacSign={zodiacSignValue}
           date={date}
           activeHoroscope={0}
-          time="today"
+          time="yesterday"
           category={category}
         />
       )}

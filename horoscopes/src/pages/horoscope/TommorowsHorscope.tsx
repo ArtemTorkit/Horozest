@@ -50,7 +50,7 @@ const TommorowsHorscope = ({ date }: TommorowsHorscopeType) => {
         />
       </Helmet>
       {category === "luck" ? (
-        <p>Your luck prediction is in progress.</p> // You can customize this message or component
+        <p>Your luck prediction is in progress.</p> 
       ) : (
         <DailyHoroscope
           title={`Tomorrow's ${capitalizeFirstLetter(
@@ -61,7 +61,7 @@ const TommorowsHorscope = ({ date }: TommorowsHorscopeType) => {
           zodiacSign={zodiacSignValue}
           date={date}
           activeHoroscope={2}
-          time="today"
+          time="tomorrow"
           category={category}
         />
       )}
