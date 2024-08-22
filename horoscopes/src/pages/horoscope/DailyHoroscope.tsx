@@ -85,10 +85,10 @@ function capitalizeFirstLetter(string:string) {
           </div>
         </div>
         <div className="bg-gray-200 w-full text-center md:max-w-[35%]">
-          advertisement
+
         </div>
       </div>
-      <SideContent/>
+      <SideContent />
     </div>
   );
 };
