@@ -1,6 +1,12 @@
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 const ErrorPage = () => {
   return (
+    <Helmet>
+      <title>404</title>
+      
+      <meta name="robots" content="noindex"></meta>
+    </Helmet>
       <div className='text-center font-raleway'>
           <p className='font-bold text-[120px]'>404</p>
           <h1 className='text-4xl'>Page not found</h1>

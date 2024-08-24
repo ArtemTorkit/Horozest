@@ -9,6 +9,7 @@ const PrivacyPolicy = () => {
           name="description"
           content={`Our privacy policy rules. | horozest.com`}
         />
+        <meta name="robots" content="noindex"></meta>
       </Helmet>
       <div className="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-lg">
         <h1 className="text-4xl font-bold mb-4">Privacy Policy</h1>

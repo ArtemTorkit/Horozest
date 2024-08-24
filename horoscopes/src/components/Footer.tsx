@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="bg-blue-600 mycontainer mt-[150px] border-t border-gray-300  pt-4">
       <div className="">
-        <ul className="flex flex-wrap gap-4 justify-center ">
+        <ul className="flex flex-wrap gap-4 justify-center text-gray-500 ">
           <li className="transition hover:text-purple hover:scale-[1.05]">
             <Link to="/">HOME PAGE</Link>
           </li>
@@ -14,16 +14,13 @@ const Footer = () => {
             <Link to="/articles">ARTICLES</Link>
           </li>
           <li className="transition hover:text-purple hover:scale-[1.05]">
-            <Link to="/zodiac-signs/aries">ZODIAC SIGNS</Link>
+            <Link to="/zodiac-signs">ZODIAC SIGNS</Link>
           </li>
           <li className="transition hover:text-purple hover:scale-[1.05]">
-            <Link to="/horoscopes/daily/aries">HOROSCOPES</Link>
+            <Link to="/horoscopes/daily/today/personal/aries">HOROSCOPES</Link>
           </li>
           <li className="transition hover:text-purple hover:scale-[1.05]">
             <Link to="/zodiac-signs/love/compatibility">COMPATIBILITY</Link>
-          </li>
-          <li className="transition hover:text-purple hover:scale-[1.05]">
-            <Link to="/zodiac-signs/love/compatibility">DAILY ASTROLOGY</Link>
           </li>
           <li className="transition hover:text-purple hover:scale-[1.05]">
             <Link to="/privacy">PRIVACY</Link>

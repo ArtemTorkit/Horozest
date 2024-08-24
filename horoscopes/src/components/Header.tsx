@@ -66,7 +66,7 @@ const Header = () => {
             </li>
             <li
               onClick={() => setBurger(false)}
-              className=" hover:scale-[1.05] cursor-pointer lg:hidden text-white hover:text-purple transition flex justify-center">
+              className=" hover:scale-[1.05] cursor-pointer lg:hidden text-black hover:text-purple transition flex justify-center">
               <svg
                 width="30px"
                 height="30px"

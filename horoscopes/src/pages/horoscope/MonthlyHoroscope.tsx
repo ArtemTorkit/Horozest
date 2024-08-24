@@ -41,8 +41,8 @@ const MonthlyHoroscope = () => {
       <p className="text-center mt-2 text-gray-400">
         ({zodiacSign}, {horoscope?.month})
       </p>
-      <div className="mt-6 font-raleway flex gap-4">
-        <div className="max-w-[65%]">
+      <div className="mt-6 font-raleway flex flex-col md:flex-row gap-4 ">
+        <div className="md:max-w-[65%]">
           <HoroscopeNavigation
             baseLink={`/horoscopes/monthly/${category}/`}
             zodiacSign={zodiacSign ?? "Aries"}
@@ -92,7 +92,7 @@ const MonthlyHoroscope = () => {
             ))}
           </div>
         </div>
-        <div className="bg-gray-200 w-full text-center max-w-[35%]">
+        <div className="bg-gray-200 w-full text-center md:max-w-[35%]">
           advertisement
         </div>
       </div>
