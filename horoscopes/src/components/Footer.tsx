@@ -28,7 +28,7 @@ const Footer = () => {
         </ul>
       </div>
       <p className="text-center my-6 text-gray-400">
-        © Copyright 2024 - Horozest.com, Inc. - All rights reserved
+        © Copyright 2024 - Horozest.com, All rights reserved
       </p>
     </footer>
   );
